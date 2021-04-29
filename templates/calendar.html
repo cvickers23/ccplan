@@ -1,4 +1,19 @@
 {% extends "layout.html" %}
+{% block head %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="ccplan/static/conncoll_nUk_icon.ico">
+
+<title>CC Academic Planner</title>
+
+<!--Bootstrap core CSS -->
+<link href="ccplan/static/assets/css/bootstrap.min.css" rel="stylesheet">
+
+<!--Custom styles for this template -->
+<link href="ccplan/static/assets/css/main.css" rel="stylesheet">
+{% endblock head %}
 {% block content %}
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -78,10 +93,9 @@
     <div class="col-md-9">
         <head>
             <title>Class Schedule</title>
-            <link rel="stylesheet" type="text/css" href="../static/assets/css/calendar.css" />
+            <link rel="stylesheet" type="text/css" href="ccplan/static/assets/css/calendar.css" />
         </head>
         <body>
-            <!-- <h2 class="text-primary">Connecticut College Academic Planner<br/></h2> -->
             <table>
                 <thead>
                     <tr>
@@ -725,7 +739,7 @@
                                     b+=1;
                                 }
                                 document.getElementById(d+start).rowSpan = b;
-                                document.getElementById(d+start).innerHTML = course.dept + " " + course.number + "<br>" + course.title + "<br>" + start_string + " - " + end_string + "<br> CRN: " + course.crn;
+                                document.getElementById(d+start).innerHTML = course.dept + " " + course.number + ", " + course.sect + "<br>" + course.title + "<br>" + start_string + " - " + end_string + "<br> CRN: " + course.crn;
                                 color = j%10;
                                 document.getElementById(d+start).className = colors[color];
 
@@ -758,9 +772,11 @@
             
                         dept_select.onchange = function() {
                             dept = dept_select.value;
+                            // console.log('course/' + dept);
                             
-                            fetch('/course/' + dept).then(function(response) {
+                            fetch('ccplan/course/' + dept).then(function(response) {
                                 response.json().then(function(data) {
+                                    // console.log(response);
                                     let optionHTML = '';
                                     for (let course of data.courses) {
                                         optionHTML += '<option value="' + course + '">' + course + '</option>';
@@ -791,7 +807,7 @@
             setTimeout(() => { conflictMessage() }, 250);
         </script>
         {% endif %}
-        <div style="margin-top:15px">
+        <div style="margin-top:20px">
             <form method="POST" action="">
                 {{ rform.hidden_tag() }}
                 <fieldset class="form-group">

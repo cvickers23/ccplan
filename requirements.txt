@@ -5,15 +5,10 @@ Flask-CAS==1.0.2
 Flask-WTF==0.14.3
 itsdangerous==1.1.0
 Jinja2==2.11.2
-MarkupSafe @ file:///opt/concourse/worker/volumes/live/cb778296-98db-45ad-411e-6f726e102dc3/volume/markupsafe_1594371638608/work
-mkl-fft==1.2.0
-mkl-random==1.1.1
-mkl-service==2.3.0
-numpy @ file:///opt/concourse/worker/volumes/live/5572694e-967a-4c0c-52cf-b53d43e72de9/volume/numpy_and_numpy_base_1603491881791/work
-pandas @ file:///opt/concourse/worker/volumes/live/f14cf8c4-c564-4eff-4b17-158e90dbf88a/volume/pandas_1602088128240/work
+numpy
+pandas
 python-dateutil==2.8.1
-pytz @ file:///tmp/build/80754af9/pytz_1606604771399/work
-six @ file:///opt/concourse/worker/volumes/live/5b31cb27-1e37-4ca5-6e9f-86246eb206d2/volume/six_1605205320872/work
+pytz
 Werkzeug==1.0.1
-WTForms @ file:///tmp/build/80754af9/wtforms_1597707484216/work
+WTForms
 xmltodict==0.12.0

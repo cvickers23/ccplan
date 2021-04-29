@@ -82,7 +82,6 @@ def about():
     return render_template('about.html', title='About')
 
 @app.route("/", methods=['GET', 'POST'])
-@app.route("/calendar", methods=['GET', 'POST'])
 def calendar():
     conf = ""
 
